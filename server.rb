@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/cross_origin'
 require "sinatra/namespace"
 require './models/db'
