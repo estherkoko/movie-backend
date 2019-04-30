@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/cross_origin'
 require "sinatra/namespace"
 require './models/db'
+require 'rails/mongoid'
 require 'net/http'
 require 'json'
 
