@@ -1,3 +1,3 @@
 # config.ru
-require 'movie-app'
+require './server'
 run Sinatra::Application 
