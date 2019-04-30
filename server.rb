@@ -6,7 +6,6 @@ require 'net/http'
 require 'json'
 
 url = 'http://www.omdbapi.com/?apikey=c51d871e&t=';
-#collection = settings.mongo_db['Book']
 
 before do
   headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
