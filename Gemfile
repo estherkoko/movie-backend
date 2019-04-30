@@ -1,5 +1,6 @@
 # Gemfile
 source 'https://rubygems.org'
+ruby '2.5.5'
 
 #dependencies
 gem 'sinatra'
