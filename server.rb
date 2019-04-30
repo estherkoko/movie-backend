@@ -6,6 +6,18 @@ require 'net/http'
 require 'json'
 
 url = 'http://www.omdbapi.com/?apikey=c51d871e&t=';
+#collection = settings.mongo_db['Book']
+
+before do
+  headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+  headers['Access-Control-Allow-Origin'] = '*'
+  headers['Access-Control-Allow-Headers'] = 'accept, authorization, origin'
+end
+
+options '*' do
+  response.headers['Allow'] = 'HEAD,GET,PUT,DELETE,OPTIONS,POST'
+  response.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept'
+end
 
 namespace '/api/v1' do
  
@@ -21,6 +33,8 @@ namespace '/api/v1' do
     if movies.count  > 0
       #return the response from the database
       movies.first.to_json
+      #content_type :json
+      #Movie_by_Title(params[:Title]).to_json
     else
       uri = URI(url + params[:title])
       response = Net::HTTP.get(uri)
@@ -28,7 +42,7 @@ namespace '/api/v1' do
     end
   end
 
-  get '/' do
+  get '/movies' do
     Movie.all.to_json
   end
 
